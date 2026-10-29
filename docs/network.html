@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Network and ports · SHIP Docs</title>
+<meta name="description" content="Make your SHIP Server reachable for people on other networks, and understand how SHIP gets through firewalls.">
+<meta property="og:title" content="Network and ports · SHIP Docs">
+<meta property="og:description" content="Make your SHIP Server reachable for people on other networks, and understand how SHIP gets through firewalls.">
+<meta property="og:image" content="../assets/img/admin-server.webp">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="../index.html"><img src="../assets/img/client-64.png" alt="">SHIP</a>
+  <nav class="nav-links" id="navLinks"><a href="../index.html" class="">Product</a><a href="../index.html#features" class="">Features</a><a href="../index.html#pricing" class="">Pricing</a><a href="../download.html" class="">Download</a><a href="../docs/index.html" class="on">Docs</a></nav>
+  <span class="spacer"></span>
+  <a class="btn ghost sm" href="../download.html">Download</a>
+  <a class="btn primary sm" href="../index.html#contact">Buy SHIP</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</div></header>
+<div class="docs">
+  <button class="btn ghost sm docs-toggle" id="docsToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg> Documentation menu</button>
+  <aside id="docsNav"><input class="search" id="docSearch" placeholder="Search the docs…" aria-label="Search the docs"><h4>Getting started</h4><a href="index.html" class="" data-k="welcome to ship 
+ what ship is 
+ ship has two parts: 
+   part  who uses it  what it does  
+   ship server   the administrator  runs on the computer that stores the files. holds the users, folders and permissions and serves every transfer. comes with your license.  
+   ship transfer   everyone  the free desktop app for windows, macos and linux that uploads and downloads at full speed.  download it here .   
+ people who don&#x27;t have the app can still use the  web portal  in a browser. 
+
+ how a transfer works 
+  ship transfer signs in to the server&#x27;s  user portal  (normally port 8090). 
+ files then move over  ship/udp , an encrypted protocol built for speed over long distances (udp port 32001). 
+ if a network blocks udp, the app switches to  ship/tcp  (port 2442) and, if that is blocked too, to  https  on the portal port. this happens automatically.  
+ every transfer is encrypted with aes-256-gcm. interrupted transfers resume where they stopped. 
+
+ where to start 
+ 
+  i&#x27;m a user  your administrator gave you a server address and a user name.    install ship transfer    upload and download files    
+  i&#x27;m the administrator  you are setting ship up for your team.    install ship server    create users and shared folders    make the server reachable    
+ 
+
+ words used in this manual 
+   term  meaning  
+  server address  how users reach your server, for example  http://203.0.113.7:8090  or  files.company.com .  
+  admin console  the administrator&#x27;s web page, at port 9090 ( http://localhost:9090/admin ">Welcome to SHIP</a><h4>For users</h4><a href="install-client.html" class="" data-k="install ship transfer 
+   before you start , have the  server address , your  user name  and your  password  ready. your administrator sends you these.  
+
+ windows 
+   download   ship-transfer-setup-windows.exe  and double-click it. 
+ if windows shows &quot;windows protected your pc&quot;, click  more info , then  run anyway . 
+ click  next  and accept the license agreement. 
+  connect to your ship server:  type the server address and click  test connection . you should see  connected to … . (no address yet? leave it empty; the app asks later.) 
+  download folder:  choose where downloaded files are saved. the default is  downloads\ship . 
+  options:  keep  start when i sign in to windows  ticked so transfers keep running in the background. 
+ click  install , then  finish . ship transfer opens. sign in.  
+ no administrator rights are needed. ship transfer is installed for your windows account only. 
+
+ macos  beta  
+   download   ship-transfer-macos.pkg . 
+ double-click it. if macos says it can&#x27;t be opened because it is from an unidentified developer:
+   macos 14 and earlier:  right-click (or control-click) the file, choose  open , then  open  again. 
+  macos 15 and later:  open  system settings › privacy &amp; security , scroll down and click  open anyway  next to the ship message.   
+ follow the installer:  continue ,  agree ,  install , then enter your mac password. 
+ ship transfer opens automatically and walks you through setup (see  first run ).  
+  alternative:  your server&#x27;s user portal ( ship transfer app">Install SHIP Transfer</a><a href="using-ship-transfer.html" class="" data-k="using ship transfer 
+   ship transfer: locations on the left, files in the middle, transfers on the right  
+ locations 
+ the left sidebar lists the places you can use: 
+   my files : your personal folder, if your administrator gave you one. 
+  shared folders : everything shared with you. each shared folder is also listed on its own. 
+  group spaces : folders that belong to a group you are in.  
+ you only see the folders you&#x27;re allowed to use. double-click a folder to open it; use the path at the top to go back. 
+
+ uploading 
+  click  upload  to choose files, or  upload folder  to send a whole folder with everything inside it. 
+ or simply  drag files and folders  from explorer, finder or your file manager onto the window.  
+ uploads go into the folder you have open. if the upload buttons are greyed out, you don&#x27;t have upload permission in that folder; ask your administrator. 
+
+ downloading 
+  double-click a file, or select files and folders and click  download  (also on the right-click menu). 
+ downloads are saved in your download folder and keep their folder structure. 
+ click the magnifier next to a finished download to show it in explorer or finder.  
+
+ organising files 
+ depending on your permissions you can: 
+   action  how  needs permission  
+  new folder  the  +  button  create folders  
+  rename  select one item › rename  rename / move  
+  delete  select › delete (goes to the recycle bin)  delete  
+  search  search box at the top  browse   
+
+ the transfers panel 
+  shows the live speed, a">Using SHIP Transfer</a><h4>For administrators</h4><a href="admin-install.html" class="" data-k="install ship server 
+  the ship server installer is delivered with your license.  request a license  if you don&#x27;t have it yet.  
+
+ requirements 
+     minimum  
+  operating system  windows 10/11 or windows server 2016+ (64-bit) · macos 11+ · linux with systemd (ubuntu 20.04+, debian 11+, rhel/rocky 8+, fedora)  
+  processor and memory  2 cpu cores, 2 gb ram. more cores help with many simultaneous transfers.  
+  disk  about 50 mb for ship, plus space for your files in the storage folder.  
+  network  for users outside your network: a public ip address or router port forwarding (see  network and ports ).   
+ the computer should stay on and not go to sleep while people use ship. 
+
+ windows 
+  double-click  ship-server-setup-windows.exe  and allow it to make changes. 
+  program folder:  where ship is installed (small, about 35 mb). 
+  ship data folder:  holds the user database, settings and logs. back it up.  already used ship on this computer?  choose the existing data folder and all users, folders and settings are kept. 
+  storage folder:  where uploaded files are kept. setup suggests the drive with the most free space. 
+  options:  keep  allow through windows firewall  ticked so people can connect. the desktop shortcut is optional. 
+ click  install . ship server is installed as a windows service that starts with the computer. 
+ click  finish  to open the admin console and complete  first-time setup .  
+ the start menu gets a  ship server  folder with the admin console, start and stop shortcuts and">Install SHIP Server</a><a href="users-and-folders.html" class="" data-k="users, groups and shared folders 
+ how access works 
+   shared folders  are folders on the storage that you share with chosen  users  and  groups . 
+ for every user or group on a folder you pick an  access level . people with no access don&#x27;t see the folder at all. 
+ a user&#x27;s own entry on a folder wins over their groups. if several of their groups have access, the permissions add up. 
+ administrators always have full access to everything. 
+ each user can also have a  personal folder  (&quot;my files&quot;), or none, so they work only in shared folders.  
+
+ access levels 
+   level  the person can  good for  
+  view &amp; download  see and download files  clients receiving deliverables, reviewers  
+  upload only (drop box)  see the folder and upload, but not download  collecting files from clients or freelancers  
+  upload &amp; download  download, upload, create folders, rename  team members working on a project  
+  full control  everything, including delete and share links  project leads  
+  custom  any combination of browse, download, upload, delete, rename, create folders, share links, sync  special cases   
+
+ create a shared folder 
+  in the admin console open  files › shared folders  and click  new folder . 
+ enter the  name users see  (for example  projects ). optionally set a location on the storage; by default it&#x27;s  /projects . to share a folder that already has files, enter its existing path. 
+ optionally give a group or user access straight away. 
+ in the folder details, use  add a user or group  to add more people, c">Users, groups and shared folders</a><a href="network.html" class="on" data-k="network and ports 
+ ports 
+   port  protocol  used for  open to the internet?  
+  8090  tcp  user portal, app sign-in, https transfers   yes  (required)  
+  32001  udp  accelerated ship/udp transfers   yes  (for full speed)  
+  2442  tcp  ship/tcp transfers when udp is blocked  recommended  
+  9090  tcp  admin console   no , keep it private   
+ only port 8090 is strictly required: if udp 32001 and tcp 2442 are closed, transfers still work over https, just slower. 
+
+ the network page 
+ open  security &amp; settings › network  in the admin console. it shows the  server address to give users , your public and local ip addresses, and whether each port could be opened on your router automatically. 
+   the network page: address for users and port status  
+
+ behind a home or office router 
+ ship asks your router to open the ports automatically (upnp or nat-pmp). if the network page says  forward manually , sign in to your router and forward tcp 8090, udp 32001 and tcp 2442 to the server&#x27;s local ip address (shown on the network page). give the server a fixed local ip in the router so the forwarding keeps working. 
+   carrier-grade nat:  if the network page says your provider uses carrier-grade nat, ports can&#x27;t be opened from your side. ask your provider for a public ipv4 address, or run ship server on a cloud machine.  
+
+ firewall 
+  windows:  the installer adds the firewall rules when  allow through windows firewall  is ticked. to add them by hand, run in an administrator command prompt: 
+  netsh advfire">Network and ports</a><a href="admin-console.html" class="" data-k="the admin console 
+ server dashboard 
+   devices › server  
+   panel  shows  
+  main information  server name ( modify  to rename), version, mac address, operating system, processor and memory, public host, ports, packet size, encryption, bandwidth limit, protocol, uptime and storage folder  
+  user connections  people signed in to the web portal, connected ship transfer apps and active transfers  
+  server status  each service (portals, udp and tcp transfer, peer-to-peer relay, scheduler, antivirus) and whether the server is reachable from the internet  
+  accounts &amp; edition  numbers of users, groups and shared folders  
+  storage status  used and free space per disk; the disk holding ship&#x27;s storage is marked  
+  cpu &amp; memory, network  live graphs over the last two minutes; choose the network card to view   
+  restart service  applies configuration changes; transfers pause for a few seconds and resume.  shut down service  stops ship completely until it&#x27;s started again on the server (windows: start menu › ship server › start ship server; linux:  sudo systemctl start ship-server ). 
+
+ monitoring 
+   page  what it&#x27;s for  
+  devices  every computer running ship transfer, with status; schedule server tasks on them  
+  online  who is signed in right now, from where; sign people out  
+  transfers  live transfers with speed and progress  
+  history  every upload and download: user, file, size, speed, method (udp/tcp/https), result. export as csv.  
+  audit log  sign-ins, failed sign-ins, user and fol">The admin console</a><h4>Help</h4><a href="troubleshooting.html" class="" data-k="troubleshooting 
+ &quot;cannot reach the server&quot; 
+  check the address: it should look like  203.0.113.7  or  files.company.com , and port 8090 is added automatically. 
+ make sure you&#x27;re not using the admin console address (port 9090). ship transfer tells you if you are. 
+ open  http://server:8090  in a browser. if that fails too, the server is off, or port 8090 is blocked by a firewall or router. administrators: see  network and ports .  
+
+ transfers are slower than expected 
+  look at the badge on the transfer.  tcp  or  https  means udp port 32001 is blocked somewhere between you and the server. ask the administrator to open it, or check your own firewall. 
+ run the  speed test  in ship transfer to measure your connection to the server. 
+ administrators: check speed limits in settings › transfers and in the user&#x27;s storage &amp; speed tab.  
+
+ upload or new folder is greyed out 
+ you don&#x27;t have that permission in this folder. your administrator can change your access level for the shared folder. 
+
+ i can&#x27;t see a folder 
+ folders only appear for people with access. ask your administrator to add you, or a group you belong to, to the shared folder. click the refresh button or sign out and in again afterwards. 
+
+ &quot;account locked&quot; 
+ too many wrong passwords. wait the lock-out time shown, or ask your administrator to unlock you (user › security). 
+
+ macos says the app can&#x27;t be opened 
+ right-click the installer and choose open, or go to system settings › privacy &amp; security and click  open anyway . see  in">Troubleshooting</a></aside>
+  <article class="doc"><span class="eyebrow">For administrators</span><h1>Network and ports</h1><p class="intro">Make your SHIP Server reachable for people on other networks, and understand how SHIP gets through firewalls.</p>
+<h2 id="ports">Ports</h2>
+<table><tr><th>Port</th><th>Protocol</th><th>Used for</th><th>Open to the internet?</th></tr>
+<tr><td>8090</td><td>TCP</td><td>User portal, app sign-in, HTTPS transfers</td><td><b>Yes</b> (required)</td></tr>
+<tr><td>32001</td><td>UDP</td><td>Accelerated SHIP/UDP transfers</td><td><b>Yes</b> (for full speed)</td></tr>
+<tr><td>2442</td><td>TCP</td><td>SHIP/TCP transfers when UDP is blocked</td><td>Recommended</td></tr>
+<tr><td>9090</td><td>TCP</td><td>Admin console</td><td><b>No</b>, keep it private</td></tr></table>
+<p>Only port 8090 is strictly required: if UDP 32001 and TCP 2442 are closed, transfers still work over HTTPS, just slower.</p>
+
+<h2 id="network-page">The Network page</h2>
+<p>Open <b>Security & settings › Network</b> in the admin console. It shows the <b>server address to give users</b>, your public and local IP addresses, and whether each port could be opened on your router automatically.</p>
+<figure><img src="../assets/img/admin-network.webp" alt="The Network page: address for users and port status" loading="lazy"><figcaption>The Network page: address for users and port status</figcaption></figure>
+
+<h2 id="router">Behind a home or office router</h2>
+<p>SHIP asks your router to open the ports automatically (UPnP or NAT-PMP). If the Network page says <i>Forward manually</i>, sign in to your router and forward TCP 8090, UDP 32001 and TCP 2442 to the server's local IP address (shown on the Network page). Give the server a fixed local IP in the router so the forwarding keeps working.</p>
+<div class="callout warn"><p><b>Carrier-grade NAT:</b> if the Network page says your provider uses carrier-grade NAT, ports can't be opened from your side. Ask your provider for a public IPv4 address, or run SHIP Server on a cloud machine.</p></div>
+
+<h2 id="firewall">Firewall</h2>
+<p><b>Windows:</b> the installer adds the firewall rules when <i>Allow through Windows Firewall</i> is ticked. To add them by hand, run in an administrator Command Prompt:</p>
+<pre><code>netsh advfirewall firewall add rule name="SHIP Server" dir=in action=allow protocol=TCP localport=8090
+netsh advfirewall firewall add rule name="SHIP Server" dir=in action=allow protocol=UDP localport=32001
+netsh advfirewall firewall add rule name="SHIP Server" dir=in action=allow protocol=TCP localport=2442</code></pre>
+<p><b>Linux:</b> the package configures <i>ufw</i> or <i>firewalld</i> when they are active. By hand:</p>
+<pre><code>sudo ufw allow 8090/tcp && sudo ufw allow 32001/udp && sudo ufw allow 2442/tcp</code></pre>
+<p><b>macOS:</b> the installer allows SHIP through the application firewall.</p>
+<p><b>Cloud servers</b> (AWS, Azure, Google Cloud, hosting providers): also open the same ports in the provider's security group or firewall panel.</p>
+
+<h2 id="domain">Using a domain name and HTTPS</h2>
+<p>Point a DNS name (for example <code>files.company.com</code>) at the server's public IP and give users that name. To serve the portal over HTTPS, start the server with a certificate (<code>--tls-cert</code> and <code>--tls-key</code>) or put it behind a reverse proxy. Transfers are always encrypted either way.</p>
+
+<h2 id="protocol">Transfer protocol setting</h2>
+<p><b>Settings › Transfers › Transmission protocol</b> controls how clients move data:</p>
+<table><tr><th>Mode</th><th>Behaviour</th></tr>
+<tr><td>Default</td><td>UDP first, automatically falling back to TCP, then HTTPS</td></tr>
+<tr><td>UDP only</td><td>Always UDP; fails if UDP is blocked</td></tr>
+<tr><td>TCP only</td><td>SHIP/TCP (then HTTPS)</td></tr>
+<tr><td>Auto</td><td>TCP for very close clients (under 10 ms away), otherwise Default</td></tr></table>
+
+<h2 id="admin-security">Protecting the admin console</h2>
+<p>The admin console runs on its own port (9090) and only admits administrator accounts. Don't forward port 9090 on your router. To manage the server remotely, use a VPN or remote desktop, or limit access with <b>Settings › Security › Admin portal allowed addresses</b>.</p>
+<div class="pager"><a href="users-and-folders.html"><small>← Previous</small>Users, groups and shared folders</a><a href="admin-console.html" style="text-align:right"><small>Next →</small>The admin console</a></div></article>
+</div>
+<footer><div class="wrap">
+  <div class="cols">
+    <div><a class="brand" href="../index.html"><img src="../assets/img/client-64.png" alt="">SHIP</a>
+      <p>Accelerated file transfer on your own server. Unlimited users, every feature, one simple yearly price.</p></div>
+    <div><h4>Product</h4><a href="../index.html#features">Features</a><a href="../index.html#how">How it works</a><a href="../index.html#pricing">Pricing</a><a href="../download.html">Download</a></div>
+    <div><h4>Docs</h4><a href="../docs/index.html">Overview</a><a href="../docs/install-client.html">Install SHIP Transfer</a><a href="../docs/admin-install.html">Install SHIP Server</a><a href="../docs/troubleshooting.html">Troubleshooting</a></div>
+    <div><h4>Company</h4><a href="../index.html#contact">Contact sales</a><a href="../license.html">License agreement</a><a href="../privacy.html">Privacy</a></div>
+  </div>
+  <div class="base"><span>© 2026 SHIP. All rights reserved.</span><span>Version 3.1.0</span></div>
+</div></footer>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
